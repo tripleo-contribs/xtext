@@ -112,7 +112,7 @@ public class TargetPlatformProject extends ProjectDescriptor {
       boolean _isAtLeast = this.getConfig().getJavaVersion().isAtLeast(JavaVersion.JAVA17);
       if (_isAtLeast) {
         _builder.append("\t\t\t");
-        _builder.append("<repository location=\"https://download.eclipse.org/releases/2024-09\"/>");
+        _builder.append("<repository location=\"https://download.eclipse.org/releases/2024-12\"/>");
         _builder.newLine();
       } else {
         _builder.append("\t\t\t");
@@ -197,7 +197,7 @@ public class TargetPlatformProject extends ProjectDescriptor {
     _builder.append("<unit id=\"org.antlr.runtime\" version=\"3.2.0.v20230929-1400\"/>");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("<unit id=\"org.junit\" version=\"4.13.2.v20230809-1000\"/>");
+    _builder.append("<unit id=\"org.junit\" version=\"0.0.0\"/>");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("<unit id=\"org.hamcrest\" version=\"2.2.0\"/>");
@@ -254,10 +254,10 @@ public class TargetPlatformProject extends ProjectDescriptor {
     _builder.append("<unit id=\"org.objectweb.asm\" version=\"9.7.0\"/>");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("<unit id=\"io.github.classgraph.classgraph\" version=\"4.8.174\"/>");
+    _builder.append("<unit id=\"io.github.classgraph.classgraph\" version=\"0.0.0\"/>");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("<repository location=\"https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2024-09\"/>");
+    _builder.append("<repository location=\"https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2024-12\"/>");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("</location>");

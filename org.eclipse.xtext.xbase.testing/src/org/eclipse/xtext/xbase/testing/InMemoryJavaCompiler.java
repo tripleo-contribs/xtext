@@ -11,6 +11,8 @@ package org.eclipse.xtext.xbase.testing;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -204,8 +206,41 @@ public class InMemoryJavaCompiler {
 		this.parentClassLoader = parent;
 		this.compilerOptions = new CompilerOptions();
 		this.setJavaVersion(javaVersion);
-		this.compilerOptions.inlineJsrBytecode = true;
+		if (INLINE_JSR_BYTECODE != null) {
+			try {
+				INLINE_JSR_BYTECODE.invoke(this.compilerOptions, true);
+			} catch (Throwable e) {
+				// ignore
+			}
+		}
 		this.compilerOptions.preserveAllLocalVariables = true;
+	}
+	
+	private final static MethodHandle INLINE_JSR_BYTECODE = findInlineJsrBytecode();
+	private static MethodHandle findInlineJsrBytecode() {
+		try {
+			return MethodHandles.lookup().findSetter(CompilerOptions.class, "inlineJsrBytecode", boolean.class);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	private final static MethodHandle ORIGINAL_SOURCE_LEVEL = findOriginalSourceLevel();
+	private static MethodHandle findOriginalSourceLevel() {
+		try {
+			return MethodHandles.lookup().findSetter(CompilerOptions.class, "originalSourceLevel", long.class);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	private final static MethodHandle ORIGINAL_COMPLIANCE_LEVEL = findOriginalComplianceLevel();
+	private static MethodHandle findOriginalComplianceLevel() {
+		try {
+			return MethodHandles.lookup().findSetter(CompilerOptions.class, "originalComplianceLevel", long.class);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public InMemoryJavaCompiler(ClassLoader parent, CompilerOptions compilerOptions) {
@@ -240,7 +275,13 @@ public class InMemoryJavaCompiler {
 	 */
 	private void setSourceLevel(long jdkVersion) {
 		compilerOptions.sourceLevel = jdkVersion;
-		compilerOptions.originalSourceLevel = jdkVersion;
+		if (ORIGINAL_SOURCE_LEVEL != null) {
+			try {
+				ORIGINAL_SOURCE_LEVEL.invoke(compilerOptions, jdkVersion);
+			} catch (Throwable e) {
+				// ignore
+			}
+		}	
 	}
 
 	/**
@@ -249,7 +290,13 @@ public class InMemoryJavaCompiler {
 	 */
 	private void setComplianceLevel(long jdkVersion) {
 		compilerOptions.complianceLevel = jdkVersion;
-		compilerOptions.originalComplianceLevel = jdkVersion;
+		if (ORIGINAL_COMPLIANCE_LEVEL != null) {
+			try {
+				ORIGINAL_COMPLIANCE_LEVEL.invoke(compilerOptions, jdkVersion);
+			} catch (Throwable e) {
+				// ignore
+			}
+		}
 	}
 
 	public Result compile(JavaSource... sources) {

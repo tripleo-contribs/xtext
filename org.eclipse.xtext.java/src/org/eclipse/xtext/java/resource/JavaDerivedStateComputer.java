@@ -45,6 +45,7 @@ import org.eclipse.xtext.common.types.access.binary.BinaryClass;
 import org.eclipse.xtext.common.types.access.binary.asm.ClassFileBytesAccess;
 import org.eclipse.xtext.common.types.access.binary.asm.JvmDeclaredTypeBuilder;
 import org.eclipse.xtext.common.types.descriptions.EObjectDescriptionBasedStubGenerator;
+import org.eclipse.xtext.jdt.facade.JdtFacade;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.parser.antlr.IReferableElementsUnloader;
 import org.eclipse.xtext.resource.IResourceDescriptions;
@@ -281,13 +282,13 @@ public class JavaDerivedStateComputer {
 		long targetLevel = toJdtVersion(targetVersion);
 		CompilerOptions compilerOptions = new CompilerOptions();
 		compilerOptions.targetJDK = targetLevel;
-		compilerOptions.inlineJsrBytecode = true;
 		compilerOptions.sourceLevel = sourceLevel;
 		compilerOptions.produceMethodParameters = true;
 		compilerOptions.produceReferenceInfo = true;
-		compilerOptions.originalSourceLevel = targetLevel;
 		compilerOptions.complianceLevel = sourceLevel;
-		compilerOptions.originalComplianceLevel = targetLevel;
+		JdtFacade.setOriginalSourceLevel(compilerOptions, targetLevel);
+		JdtFacade.setOriginalComplianceLevel(compilerOptions, targetLevel);
+		JdtFacade.setInlineJsrBytecode(compilerOptions, true);
 		return compilerOptions;
 	}
 

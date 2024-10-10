@@ -62,7 +62,7 @@ class TargetPlatformProject extends ProjectDescriptor {
 					<unit id="org.eclipse.draw2d.feature.group" version="0.0.0"/>
 					<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
 					«IF config.javaVersion.isAtLeast(JavaVersion.JAVA17)»
-						<repository location="https://download.eclipse.org/releases/2024-09"/>
+						<repository location="https://download.eclipse.org/releases/2024-12"/>
 					«ELSE»
 						<repository location="https://download.eclipse.org/releases/2023-03"/>
 					«ENDIF»
@@ -90,7 +90,7 @@ class TargetPlatformProject extends ProjectDescriptor {
 					<unit id="com.google.inject" version="7.0.0"/>
 					<unit id="jakarta.inject.jakarta.inject-api" version="2.0.1"/>
 					<unit id="org.antlr.runtime" version="3.2.0.v20230929-1400"/>
-					<unit id="org.junit" version="4.13.2.v20230809-1000"/>
+					<unit id="org.junit" version="0.0.0"/>
 					<unit id="org.hamcrest" version="2.2.0"/>
 					<unit id="org.hamcrest.core" version="2.2.0.v20230809-1000"/>
 					<unit id="org.apache.commons.commons-logging" version="0.0.0"/>
@@ -109,8 +109,8 @@ class TargetPlatformProject extends ProjectDescriptor {
 						<unit id="org.opentest4j" version="0.0.0"/>
 					«ENDIF»
 					<unit id="org.objectweb.asm" version="9.7.0"/>
-					<unit id="io.github.classgraph.classgraph" version="4.8.174"/>
-					<repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2024-09"/>
+					<unit id="io.github.classgraph.classgraph" version="0.0.0"/>
+					<repository location="https://download.eclipse.org/tools/orbit/simrel/orbit-aggregation/2024-12"/>
 				</location>
 			</locations>
 		</target>

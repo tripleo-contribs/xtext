@@ -25,7 +25,7 @@ public class WebProjectDescriptor extends ProjectDescriptor {
 
   private static final String JQUERY_VERSION = "3.6.0";
 
-  private static final String JETTY_VERSION = "11.0.21";
+  private static final String JETTY_VERSION = "11.0.23";
 
   private static final String SLF4J_VERSION = "2.0.5";
 
@@ -281,6 +281,9 @@ public class WebProjectDescriptor extends ProjectDescriptor {
       _builder.newLine();
       _builder.append("\t\t\t\t");
       _builder.append("<execution>");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      _builder.append("<?m2e ignore?>");
       _builder.newLine();
       _builder.append("\t\t\t\t\t");
       _builder.append("<id>add-source</id>");

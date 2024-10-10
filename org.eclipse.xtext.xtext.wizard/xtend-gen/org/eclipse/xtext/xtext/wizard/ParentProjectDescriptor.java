@@ -106,7 +106,7 @@ public class ParentProjectDescriptor extends ProjectDescriptor {
   }
 
   public String getTychoVersion() {
-    return "4.0.8";
+    return "4.0.9";
   }
 
   public String getTychoVersionJ11() {
@@ -1213,105 +1213,6 @@ public class ParentProjectDescriptor extends ProjectDescriptor {
           _builder.newLine();
         }
       }
-      _builder.append("\t\t\t");
-      _builder.append("<plugin>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t");
-      _builder.append("<groupId>org.eclipse.m2e</groupId>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t");
-      _builder.append("<artifactId>lifecycle-mapping</artifactId>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t");
-      _builder.append("<version>1.0.0</version>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t");
-      _builder.append("<configuration>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t");
-      _builder.append("<lifecycleMappingMetadata>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t");
-      _builder.append("<pluginExecutions>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t");
-      _builder.append("<pluginExecution>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t");
-      _builder.append("<pluginExecutionFilter>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("<groupId>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("org.codehaus.mojo");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("</groupId>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("<artifactId>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("build-helper-maven-plugin");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("</artifactId>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("<versionRange>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("[1.9.1,)");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("</versionRange>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("<goals>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("<goal>add-resource</goal>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("<goal>add-source</goal>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("<goal>add-test-resource</goal>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t\t");
-      _builder.append("<goal>add-test-source</goal>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("</goals>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t");
-      _builder.append("</pluginExecutionFilter>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t");
-      _builder.append("<action>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t\t");
-      _builder.append("<ignore></ignore>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t\t");
-      _builder.append("</action>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t\t");
-      _builder.append("</pluginExecution>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t\t");
-      _builder.append("</pluginExecutions>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t\t");
-      _builder.append("</lifecycleMappingMetadata>");
-      _builder.newLine();
-      _builder.append("\t\t\t\t");
-      _builder.append("</configuration>");
-      _builder.newLine();
-      _builder.append("\t\t\t");
-      _builder.append("</plugin>");
-      _builder.newLine();
       {
         boolean _needsTychoBuild_4 = this.getConfig().needsTychoBuild();
         if (_needsTychoBuild_4) {
